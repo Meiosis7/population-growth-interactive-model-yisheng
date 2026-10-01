@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>种群的“J”形和“S”形增长 | 一生儿 高中生物一本通</title>
+<title>种群的“J”形和“S”形增长 | 一生儿《高中生物一本通》</title>
 <meta name="description" content="高中生物选择性必修2交互实验：探索J形与S形增长、环境容纳量K、增长率与增长速率。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%2311233c'/%3E%3Cpath d='M8 30C23 30 17 10 32 10' fill='none' stroke='%2326c0a2' stroke-width='3'/%3E%3C/svg%3E">
 <style>
@@ -58,10 +58,11 @@ input[type=range]{accent-color:var(--teal)}input[type=range]::-webkit-slider-thu
 .timeline-head>.time-end{display:block;font-size:12px;color:#475345}
 .topbar .topmeta{display:flex}.brand{flex-wrap:wrap}.topbar{flex-wrap:wrap;gap:8px 20px}
 @media(max-width:600px){.topbar{gap:3px;padding:7px 12px}.topbar .brand{font-size:13px}.topbar .topmeta{width:100%;padding-left:33px;font-size:11px}.timeline-head{align-items:flex-start;flex-wrap:wrap;gap:4px}.timeline-head>.time-end{display:block;width:100%;font-size:11px}.formula{font-size:21px;line-height:1.7}.formula-rate{font-size:16px}}
+.topbar{justify-content:flex-start;gap:8px 18px}.topbar .topmeta{margin-left:0}@media(max-width:600px){.topbar{gap:3px 10px}.topbar .topmeta{width:auto;padding-left:0}}
 </style>
 </head>
 <body>
-<header><div class="topbar"><div class="brand"><span class="brandmark" aria-hidden="true">∿</span> <span>一生儿《高中生物一本通》</span></div><div class="topmeta"><span>选择性必修 2 · 种群数量的变化</span></div></div></header>
+<header><div class="topbar"><div class="brand"><span class="brandmark" aria-hidden="true">∿</span> <span>一生儿《高中生物一本通》</span></div><div class="topmeta"><span>选择性必修2·种群的数量变化</span></div></div></header>
 <main>
 <div class="heading"><div><p class="eyebrow">种群及其动态 · 种群数量的变化</p><h1>种群的“J”形和“S”形增长</h1><p>比较两种增长方式，理解环境容纳量与种群增长的关系。</p></div><span class="chapter">生物学交互模型</span></div>
 <nav class="page-tabs" role="tablist" aria-label="学习内容"><button role="tab" id="tab-lab" aria-controls="lab" aria-selected="true">动态实验</button><button role="tab" id="tab-knowledge" aria-controls="knowledge" aria-selected="false">知识与探究</button></nav>
@@ -96,7 +97,7 @@ input[type=range]{accent-color:var(--teal)}input[type=range]::-webkit-slider-thu
 <div class="panel investigate"><div><h3>探究：环境容纳量对种群增长的影响</h3><p>保持 N₀ 和 λ 不变，分别把 K 调为 400、800。比较平台高度与 K/2 对应的数量；观察 J 形曲线是否改变。</p></div><button class="secondary" id="back-lab">返回实验验证 →</button></div>
 </section>
 <details class="panel model-details"><summary>模型说明</summary><p>本程序用于高中生物概念教学，不代表某一物种的真实观测数据。时间使用相对单位，N₀ &lt; K/2；同一轮模拟中，K 与 λ 固定，忽略迁入、迁出、年龄结构、时滞和随机环境波动。</p><p>J 形使用 <code>N(t) = N₀ λᵗ</code>，并做连续时间延拓以获得平滑动画。S 形用逻辑斯谛模型 <code>N(t) = K / [1 + (K/N₀ − 1)λ⁻ᵗ]</code> 近似其趋势；后一个公式用于程序计算，不作为本课要求背诵的公式。</p><p>“增长速率”图展示当前曲线斜率：J 形为 <code>rN</code>，S 形为 <code>rN(1 − N/K)</code>，其中 <code>r = ln λ</code>。ΔN/Δt 为一段时间内的平均增长速率。“增长率”图及数值按下一单位时间的 <code>[N(t+1) − N(t)] / N(t) × 100%</code> 计算。λ 是 J 形的固定倍数；S 形的实际倍数随密度改变。</p><p>S 形数量在本连续模型中趋近 K，而非在有限时间恰好到达 K。数值为近似值；真实自然种群可出现波动甚至衰退。改变 K 会从同一初始数量重新计算，不表示把当前种群数量瞬间改变。</p></details>
-<footer class="footer"><span>一生儿 高中生物一本通 · 生物学交互模型</span><span>种群的“J”形和“S”形增长 · 教学示意</span></footer>
+<footer class="footer"><span>一生儿《高中生物一本通》 · 生物学交互模型</span><span>种群的“J”形和“S”形增长 · 教学示意</span></footer>
 </main>
 <script>
 'use strict';
