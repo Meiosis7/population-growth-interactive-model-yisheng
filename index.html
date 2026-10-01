@@ -50,10 +50,18 @@ input[type=range]{accent-color:var(--teal)}input[type=range]::-webkit-slider-thu
 @media(max-width:600px){.topbar{padding:8px 12px}.heading h1{line-height:1.5}.heading p:last-child{margin-top:0}.page-tabs{gap:8px}.page-tabs button{padding:6px 14px;font-size:13px}.workspace{gap:14px}.panel{box-shadow:3px 3px 0 #25302d;border-radius:9px 6px 10px 6px}.chart-top{padding-top:10px}.primary,.secondary,.jump-buttons button{box-shadow:1px 2px 0 var(--ink)}.stage-note{margin-top:12px;box-shadow:2px 3px 0 var(--ink)}.sidepanel h2{padding-bottom:7px}.param-head output{padding:1px 3px}.metric-number{font-size:23px}.condition-panel{margin-top:14px}.model-details{margin-top:14px}.chart{height:clamp(195px,24svh,220px)}}
 @media(prefers-reduced-motion:reduce){button{transition:none}}
 
+
+/* PDF review corrections, 2026-10-01. */
+.math-symbol{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:inherit}
+.investigate .secondary{color:var(--ink);background:#fffdf5}.investigate .secondary:hover{color:var(--ink);background:#f7eabd}
+.formula-rate{display:inline-block;font-family:inherit;font-size:.78em}
+.timeline-head>.time-end{display:block;font-size:12px;color:#475345}
+.topbar .topmeta{display:flex}.brand{flex-wrap:wrap}.topbar{flex-wrap:wrap;gap:8px 20px}
+@media(max-width:600px){.topbar{gap:3px;padding:7px 12px}.topbar .brand{font-size:13px}.topbar .topmeta{width:100%;padding-left:33px;font-size:11px}.timeline-head{align-items:flex-start;flex-wrap:wrap;gap:4px}.timeline-head>.time-end{display:block;width:100%;font-size:11px}.formula{font-size:21px;line-height:1.7}.formula-rate{font-size:16px}}
 </style>
 </head>
 <body>
-<header><div class="topbar"><div class="brand"><span class="brandmark" aria-hidden="true">∿</span> 一生儿 <span style="font-weight:400;color:#bdcddd">高中生物一本通</span></div><div class="topmeta"><span>选择性必修 2 <b>生物与环境</b></span><span>第 1 章 · 第 2 节</span></div></div></header>
+<header><div class="topbar"><div class="brand"><span class="brandmark" aria-hidden="true">∿</span> <span>一生儿《高中生物一本通》</span></div><div class="topmeta"><span>选择性必修 2 · 种群数量的变化</span></div></div></header>
 <main>
 <div class="heading"><div><p class="eyebrow">种群及其动态 · 种群数量的变化</p><h1>种群的“J”形和“S”形增长</h1><p>比较两种增长方式，理解环境容纳量与种群增长的关系。</p></div><span class="chapter">生物学交互模型</span></div>
 <nav class="page-tabs" role="tablist" aria-label="学习内容"><button role="tab" id="tab-lab" aria-controls="lab" aria-selected="true">动态实验</button><button role="tab" id="tab-knowledge" aria-controls="knowledge" aria-selected="false">知识与探究</button></nav>
@@ -61,30 +69,30 @@ input[type=range]{accent-color:var(--teal)}input[type=range]::-webkit-slider-thu
 <div class="workspace"><div>
 <section class="panel" aria-label="种群增长动态模拟">
 <div class="chart-top"><div class="chart-heading"><h2 class="section-title" id="chart-title">种群数量<span>随时间变化</span></h2><button class="primary" id="play">▶ 播放</button></div><div class="segmented" aria-label="曲线指标"><button data-view="population" aria-pressed="true">种群数量</button><button data-view="speed" aria-pressed="false">增长速率</button><button data-view="rate" aria-pressed="false">增长率</button></div></div>
-<div class="legend"><span class="legend-item"><i class="line-key"></i>J 形 · 理想条件</span><span class="legend-item"><i class="line-key s"></i>S 形 · 有限条件</span><select id="scale" aria-label="图表纵轴范围"><option value="focus">纵轴：聚焦 K 附近</option><option value="all">纵轴：显示完整曲线</option></select></div>
+<div class="legend"><span class="legend-item"><i class="line-key"></i>J 形 · 理想条件</span><span class="legend-item"><i class="line-key s"></i>S 形 · 有限条件</span><select id="scale" aria-label="图表纵轴范围"><option value="focus">纵轴：聚焦 𝐾 附近</option><option value="all">纵轴：显示完整曲线</option></select></div>
 <div class="chart-wrap"><svg id="chart" class="chart" role="img" aria-label="J形与S形种群增长曲线，可点击曲线区域定位观察时间"></svg></div>
 <p class="chart-note" id="chart-note">实线表示 J 形，虚线表示 S 形；浅色为后续轨迹。</p>
 <div class="metric-grid"><div class="metric"><div class="metric-top"><b>J 形增长</b><span>不受资源限制</span></div><div class="metric-number"><span id="j-number">20</span><small>个</small></div><div class="metric-detail" id="j-detail">下一时间单位增长率：25.0%</div></div><div class="metric s"><div class="metric-top"><b>S 形增长</b><span id="s-percent">K 的 3.3%</span></div><div class="metric-number"><span id="s-number">20</span><small>个</small></div><div class="metric-detail" id="s-detail">下一时间单位增长率：24.0%</div></div></div>
-<div class="transport"><label class="timeline-head" for="time"><span>观察时间 <output id="time-output">0.0</output> <span class="time-end">/ 40 单位</span></span><span class="time-end">拖动时间轴，逐帧观察</span></label><input class="timeline" type="range" id="time" min="0" max="40" step="0.02" value="0"><div class="transport-bottom"><div class="actions"><button class="secondary" id="restart" aria-label="回到时间起点">↺ 重播</button><select class="speed" id="speed" aria-label="播放速度"><option value="1">1× 速度</option><option value="0.5">0.5× 速度</option><option value="2">2× 速度</option></select></div><div class="jump-buttons"><button id="jump-half">定位 K/2</button><button id="jump-near">接近 K</button></div></div></div>
+<div class="transport"><label class="timeline-head" for="time"><span>观察时间 <output id="time-output">0.0</output> <span class="time-end">/ 40 单位</span></span><span class="time-end">拖动下方进度条观察曲线动态变化</span></label><input class="timeline" type="range" id="time" min="0" max="40" step="0.02" value="0"><div class="transport-bottom"><div class="actions"><button class="secondary" id="restart" aria-label="从起点重新播放">↺ 重播</button><select class="speed" id="speed" aria-label="播放速度"><option value="1">1× 速度</option><option value="0.5">0.5× 速度</option><option value="2">2× 速度</option></select></div><div class="jump-buttons"><button id="jump-half">定位 K/2</button><button id="jump-near">接近 K</button></div></div></div>
 </section>
 <div class="stage-note" aria-live="polite"><span class="stage-icon" aria-hidden="true">i</span><div><strong id="stage-title">S 形增长 · 加速阶段</strong><p id="stage-description">种群数量小于 K/2，数量增加，增长速率逐渐增大。</p></div></div>
 </div><aside class="sidebar">
 <section class="panel sidepanel"><p class="panel-kicker">种群增长模型</p><h2>参数设置</h2>
 <div class="param"><label class="param-head" for="n0"><span>初始数量 N₀</span><output id="n0-output">20 个</output></label><input type="range" id="n0" min="10" max="80" step="5" value="20"><div class="range-ends"><span>10 个</span><span>80 个</span></div></div>
 <div class="param"><label class="param-head" for="lambda"><span>理想增长倍数 λ</span><output id="lambda-output">1.25</output></label><input type="range" id="lambda" min="1.2" max="1.5" step="0.01" value="1.25"><div class="range-ends"><span>1.20</span><span>1.50</span></div><p>例如 λ = 1.25 表示：理想条件下，下一个时间单位的数量是当前的 1.25 倍。</p></div>
-<div class="param"><label class="param-head" for="k"><span>环境容纳量 K</span><output id="k-output">600 个</output></label><input type="range" id="k" min="200" max="1000" step="50" value="600"><div class="range-ends"><span>200 个</span><span>1,000 个</span></div><p>K 只限制 S 形增长。提高 K，模拟环境可支持更多个体。</p></div>
+<div class="param"><label class="param-head" for="k"><span>环境容纳量 K 值</span><output id="k-output">600 个</output></label><input type="range" id="k" min="200" max="1000" step="50" value="600"><div class="range-ends"><span>200 个</span><span>1,000 个</span></div><p>K 值只限制 S 形增长。提高 K 值，模拟环境可支持更多个体。</p></div>
 <div class="divider"></div><label class="toggle"><input type="checkbox" id="future" checked>显示后续轨迹</label><label class="toggle"><input type="checkbox" id="guides" checked>显示关键点与辅助线</label><button class="secondary reset" id="reset">恢复默认条件</button><p class="helper">调整条件后从起点重新模拟，便于控制变量比较。</p></section>
 <section class="panel condition-panel"><h3>两种增长方式的形成条件</h3><div class="condition j"><b>J 形：理想环境</b><p>食物和空间充裕、气候适宜，没有天敌等制约因素。</p></div><div class="condition s"><b>S 形：环境阻力</b><p>资源和空间有限。种群密度增大后，种内竞争等制约增强。</p></div></section>
 </aside></div>
-<div class="callout"><strong>记住这一点：</strong>增长速率回答“单位时间增加多少个”，增长率回答“相对于原有数量增加多少”。<strong>S 形种群在 K/2 时，最大的是增长速率。</strong></div>
+<div class="callout"><strong>记住这一点：</strong>增长速率回答“单位时间增加多少个”，增长率回答“相对于原有数量增加多少”。<strong>S 形增长中，种群数量在 K/2 时，增长速率最大。</strong></div>
 </section>
 <section id="knowledge" class="learning" role="tabpanel" aria-labelledby="tab-knowledge" hidden>
 <div class="panel learn-intro"><p class="eyebrow">种群增长 · 核心知识</p><h2>“J”形增长与“S”形增长的比较</h2><p>先比较模型的前提条件，再联系数量、增长速率和环境容纳量。以下均以增长中的种群为例，暂不考虑迁入与迁出。</p></div>
 <div class="panel"><table class="compare-table"><thead><tr><th>比较维度</th><th>J 形增长</th><th>S 形增长</th></tr></thead><tbody><tr><td>环境条件</td><td>资源和空间充足的理想条件</td><td>资源和空间有限，存在环境阻力</td></tr><tr><td>种群数量</td><td>以一定倍数不断增长</td><td>先增后趋稳，接近 K</td></tr><tr><td>增长速率</td><td>不断增大</td><td>先增大后减小，K/2 时最大</td></tr><tr><td>增长率</td><td>保持不变</td><td>随着种群数量增加逐渐减小</td></tr><tr><td>环境容纳量</td><td>模型不设 K 值限制</td><td>一定环境条件下具有 K 值</td></tr></tbody></table></div>
-<div class="learn-grid"><article class="panel knowledge-card"><p class="eyebrow">概念一 · 增长倍数</p><h3>增长倍数 λ 与增长率</h3><div class="formula">N<sub>t</sub> = N₀ · λ<sup>t</sup></div><p>N₀ 是初始数量，t 是经过的时间单位，λ 是相邻时间单位种群数量之比。J 形增长要求 λ &gt; 1 且保持不变。</p><p>例如 λ = 1.25，对应每个时间单位的增长率为 <strong>25%</strong>，并非 125%。</p></article><article class="panel knowledge-card"><p class="eyebrow">概念二 · 环境容纳量</p><h3>环境容纳量 K 及其变化</h3><p>一定环境条件所能维持的种群最大数量，称为环境容纳量。食物、空间等条件改变，K 值也可能改变。</p><p><strong>达到 K 附近，不代表个体停止出生或死亡。</strong>在忽略迁入和迁出时，出生与死亡大致平衡，种群净增长接近 0。</p><p>自然种群可能在 K 值附近波动，平滑的 S 形曲线是对变化趋势的简化。</p></article></div>
-<article class="panel quiz" data-quiz="0"><div class="quiz-label">读图分析</div><h3>S 形种群数量超过 K/2、尚未达到 K 时，会发生什么？</h3><div class="choices"><button data-answer="0">数量开始减少</button><button data-answer="1">数量增加，增长速率减小</button><button data-answer="2">增长率继续增大</button></div><p class="feedback" aria-live="polite">先判断，再回到动画检验。</p></article>
-<article class="panel quiz" data-quiz="1"><div class="quiz-label">概念辨析</div><h3>S 形增长在 N = K/2 时，达到最大值的是哪一项？</h3><div class="choices"><button data-answer="0">种群数量</button><button data-answer="1">增长率</button><button data-answer="2">增长速率</button></div><p class="feedback" aria-live="polite">注意“数量”“速率”和“比例”的区别。</p></article>
-<article class="panel quiz" data-quiz="2"><div class="quiz-label">知识应用</div><h3>栖息地得到改善，食物与空间增加，同一种群的 K 值如何变化？</h3><div class="choices"><button data-answer="0">可能增大</button><button data-answer="1">一定不变</button><button data-answer="2">必然减小</button></div><p class="feedback" aria-live="polite">从“环境能够维持多少个体”思考。</p></article>
+<div class="learn-grid"><article class="panel knowledge-card"><p class="eyebrow">概念一 · 增长倍数</p><h3>增长倍数 λ 与增长率</h3><div class="formula">N<sub>t</sub> = N₀ · λ<sup>t</sup><span class="formula-rate">；增长率 = λ − 1</span></div><p>N₀ 是初始数量，t 是经过的时间单位，λ 是相邻时间单位种群数量之比。J 形增长要求 λ &gt; 1 且保持不变。</p><p>例如 λ = 1.25，对应每个时间单位的增长率为 <strong>25%</strong>，并非 125%。</p></article><article class="panel knowledge-card"><p class="eyebrow">概念二 · 环境容纳量</p><h3>环境容纳量 K 及其变化</h3><p>一定环境条件所能维持的种群最大数量，称为环境容纳量。食物、空间等条件改变，K 值也可能改变。</p><p><strong>种群数量达到 K 值，不代表个体停止出生或死亡。</strong>在忽略迁入和迁出时，出生与死亡大致平衡，种群净增长接近 0。</p><p>自然种群可能在 K 值附近波动，平滑的 S 形曲线是对变化趋势的简化。</p></article></div>
+<article class="panel quiz" data-quiz="0"><div class="quiz-label">读图分析</div><h3>S 形增长中，种群数量超过 K/2、尚未达到 K 值时，会发生什么？</h3><div class="choices"><button data-answer="0">数量开始减少</button><button data-answer="1">数量增加，增长速率减小</button><button data-answer="2">增长率继续增大</button></div><p class="feedback" aria-live="polite">点击方框作出判断，再回到动画检验。</p></article>
+<article class="panel quiz" data-quiz="1"><div class="quiz-label">概念辨析</div><h3>S 形增长在 N = K/2 时，达到最大值的是哪一项？</h3><div class="choices"><button data-answer="0">种群数量</button><button data-answer="1">增长率</button><button data-answer="2">增长速率</button></div><p class="feedback" aria-live="polite">点击方框作出判断，注意“数量”“速率”和“比例”的区别。</p></article>
+<article class="panel quiz" data-quiz="2"><div class="quiz-label">知识应用</div><h3>栖息地得到改善，食物与空间增加，同一种群的 K 值如何变化？</h3><div class="choices"><button data-answer="0">可能增大</button><button data-answer="1">一定不变</button><button data-answer="2">必然减小</button></div><p class="feedback" aria-live="polite">点击方框作出判断，从“环境能够维持多少个体”思考。</p></article>
 <div class="panel investigate"><div><h3>探究：环境容纳量对种群增长的影响</h3><p>保持 N₀ 和 λ 不变，分别把 K 调为 400、800。比较平台高度与 K/2 对应的数量；观察 J 形曲线是否改变。</p></div><button class="secondary" id="back-lab">返回实验验证 →</button></div>
 </section>
 <details class="panel model-details"><summary>模型说明</summary><p>本程序用于高中生物概念教学，不代表某一物种的真实观测数据。时间使用相对单位，N₀ &lt; K/2；同一轮模拟中，K 与 λ 固定，忽略迁入、迁出、年龄结构、时滞和随机环境波动。</p><p>J 形使用 <code>N(t) = N₀ λᵗ</code>，并做连续时间延拓以获得平滑动画。S 形用逻辑斯谛模型 <code>N(t) = K / [1 + (K/N₀ − 1)λ⁻ᵗ]</code> 近似其趋势；后一个公式用于程序计算，不作为本课要求背诵的公式。</p><p>“增长速率”图展示当前曲线斜率：J 形为 <code>rN</code>，S 形为 <code>rN(1 − N/K)</code>，其中 <code>r = ln λ</code>。ΔN/Δt 为一段时间内的平均增长速率。“增长率”图及数值按下一单位时间的 <code>[N(t+1) − N(t)] / N(t) × 100%</code> 计算。λ 是 J 形的固定倍数；S 形的实际倍数随密度改变。</p><p>S 形数量在本连续模型中趋近 K，而非在有限时间恰好到达 K。数值为近似值；真实自然种群可出现波动甚至衰退。改变 K 会从同一初始数量重新计算，不表示把当前种群数量瞬间改变。</p></details>
@@ -92,6 +100,28 @@ input[type=range]{accent-color:var(--teal)}input[type=range]::-webkit-slider-thu
 </main>
 <script>
 'use strict';
+
+function formatMath(root){
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),items=[];
+ while(walker.nextNode()){
+  const n=walker.currentNode;
+  if(n.parentElement?.closest('script,style,option,.math-symbol'))continue;
+  if(/[KNtλᵗ]/.test(n.data))items.push(n);
+ }
+ for(const n of items){
+  const frag=document.createDocumentFragment();
+  for(const part of n.data.split(/([KNtλᵗ])/)){
+   if(!part)continue;
+   if(/^[KNtλᵗ]$/.test(part)){
+    const svg=n.parentElement.namespaceURI==='http://www.w3.org/2000/svg';
+    const el=svg?document.createElementNS('http://www.w3.org/2000/svg','tspan'):document.createElement('var');
+    el.setAttribute('class','math-symbol');el.textContent=part;frag.appendChild(el);
+   }else frag.appendChild(document.createTextNode(part));
+  }
+  n.replaceWith(frag);
+ }
+}
+
 const GrowthModel = {
  count(t,type,p){return type==='j'?p.n0*Math.pow(p.lambda,t):p.k/(1+(p.k/p.n0-1)*Math.pow(p.lambda,-t));},
  speed(t,type,p){const n=this.count(t,type,p);return Math.log(p.lambda)*n*(type==='s'?1-n/p.k:1);},
@@ -105,7 +135,7 @@ let params={n0:20,lambda:1.25,k:600},time=0,view='population',running=false,last
 const format=(v,n=1)=>v.toLocaleString('zh-CN',{maximumFractionDigits:n,minimumFractionDigits:n});
 const short=v=>v>=1e8?format(v/1e8,2)+'亿':v>=1e5?format(v/1e4,1)+'万':format(v,1);
 const node=(tag,attrs,parent)=>{const el=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>k==='text'?el.textContent=v:el.setAttribute(k,v));parent.appendChild(el);return el;};
-const text=(p,x,y,str,attrs={})=>node('text',{x,y,text:str,...attrs},p);
+const text=(p,x,y,str,attrs={})=>{const el=node('text',{x,y,text:str,...attrs},p);formatMath(el);return el};
 const line=(p,x1,y1,x2,y2,attrs={})=>node('line',{x1,y1,x2,y2,...attrs},p);
 function measure(t,type){return view==='population'?GrowthModel.count(t,type,params):GrowthModel[view](t,type,params)}
 function niceMax(v){const unit=10**Math.floor(Math.log10(v));return Math.ceil(v/unit)*unit;}
@@ -137,7 +167,7 @@ function draw(){
  if(exceeded)text(svg,r-5,top+16,'J 形超出当前纵轴 ↑',{'text-anchor':'end',style:'fill:#3262d5'});
  const hit=node('rect',{x:l,y:top,width:r-l,height:bottom-top,fill:'transparent',style:'cursor:crosshair'},svg);
  hit.addEventListener('pointerdown',e=>{const box=svg.getBoundingClientRect();seek(Math.max(0,Math.min(T,(e.clientX-box.left-l)/(r-l)*T)))});
- $('chart-note').textContent=view==='population'?(showAll?'完整纵轴：J 形数量很大时，S 形会显得贴近横轴。':'纵轴聚焦 K 附近。J 形超出画面后仍继续增长，实时数量见下方。'):view==='speed'?'增长速率对应数量曲线的斜率；S 形在 K/2 处最大，随后减小。':'增长率按下一时间单位的相对增量计算；它不是曲线的斜率，也不是 λ。';
+ $('chart-note').textContent=view==='population'?(showAll?'完整纵轴：J 形数量很大时，S 形会显得贴近横轴。':'纵轴聚焦 K 附近。J 形超出画面后仍继续增长，实时数量见下方。'):view==='speed'?'增长速率对应数量曲线的斜率；S 形在 K/2 处最大，随后减小。':'增长率按下一时间单位的相对增量计算；它不是曲线的斜率，也不是 λ。';formatMath($('chart-note'));
 }
 function update(){
  const j=GrowthModel.count(time,'j',params),s=GrowthModel.count(time,'s',params),half=GrowthModel.half(params),ratio=s/params.k;
@@ -145,13 +175,14 @@ function update(){
  for(const type of ['j','s'])$(type+'-detail').textContent=view==='speed'?'瞬时增长速率：'+short(GrowthModel.speed(time,type,params))+' 个/单位时间':'下一时间单位增长率：'+format(GrowthModel.rate(time,type,params),1)+'%';
  const key=Math.abs(time-half)<.025?'half':ratio<.5?'early':ratio<.9?'late':'near';
  if(stageKey!==key){stageKey=key;const messages={early:['S 形增长 · 加速阶段','N < K/2：种群数量增加，增长速率逐渐增大；增长率则逐渐减小。'],half:['S 形增长 · 增长速率最大','N = K/2：数量曲线最陡，单位时间增加的个体数最多。注意：并非增长率最大。'],late:['S 形增长 · 减速阶段','K/2 < N < K：种群数量仍在增加，但增长速率减小。减速增长不等于数量减少。'],near:['S 形增长 · 趋于稳定','N 逐渐接近 K：净增长趋近 0；忽略迁入、迁出时，出生与死亡趋于平衡。']};$('stage-title').textContent=messages[key][0];$('stage-description').textContent=messages[key][1];}
+ for(const id of ['s-percent','stage-description','chart-note'])formatMath($(id));
  $('jump-half').classList.toggle('active',key==='half');$('jump-near').classList.toggle('active',key==='near');draw();
 }
 function pause(){running=false;cancelAnimationFrame(frame);$('play').textContent=time>=T?'▶ 重新播放':'▶ 播放';}
 function seek(t){time=t;pause();update()}
 function tick(now){if(!running)return;time=Math.min(T,time+Math.min((now-last)/1000,.08)*1.5*Number($('speed').value));last=now;update();if(time>=T)pause();else frame=requestAnimationFrame(tick)}
 $('play').onclick=()=>{if(running){pause();return}if(time>=T)time=0;running=true;$('play').textContent='Ⅱ 暂停';last=performance.now();frame=requestAnimationFrame(tick)};
-$('restart').onclick=()=>seek(0);$('time').oninput=()=>seek(Number($('time').value));$('jump-half').onclick=()=>seek(GrowthModel.half(params));$('jump-near').onclick=()=>seek(Math.min(T,GrowthModel.near(params)));
+$('restart').onclick=()=>{seek(0);$('play').click()};$('time').oninput=()=>seek(Number($('time').value));$('jump-half').onclick=()=>seek(GrowthModel.half(params));$('jump-near').onclick=()=>seek(Math.min(T,GrowthModel.near(params)));
 function sync(){for(const key of ['n0','lambda','k']){params[key]=Number($(key).value);$(key+'-output').textContent=key==='lambda'?format(params[key],2):params[key]+' 个';}seek(0)}
 for(const key of ['n0','lambda','k'])$(key).oninput=sync;
 $('reset').onclick=()=>{$('n0').value=20;$('lambda').value=1.25;$('k').value=600;sync()};
@@ -159,10 +190,10 @@ for(const key of ['future','guides','scale'])$(key).onchange=update;
 for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>{view=button.dataset.view;document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b===button));$('chart-title').innerHTML=({population:'种群数量',speed:'增长速率',rate:'增长率'})[view]+'<span>随时间变化</span>';$('scale').disabled=view==='rate';update()};
 function tab(name){pause();for(const id of ['lab','knowledge']){$(id).hidden=name!==id;$('tab-'+id).setAttribute('aria-selected',name===id)}if(name==='lab')update()}
 $('tab-lab').onclick=()=>tab('lab');$('tab-knowledge').onclick=()=>tab('knowledge');$('back-lab').onclick=()=>{tab('lab');$('tab-lab').focus();window.scrollTo({top:0,behavior:'smooth'})};
-const answers=[{correct:1,text:'数量曲线仍在上升，但斜率减小。因此数量增加，增长速率逐渐减小。'},{correct:2,text:'在 K/2 时最大的是增长速率；增长率已在下降，数量也未达到 K。'},{correct:0,text:'K 取决于环境条件。栖息地改善后，可维持的种群数量可能增加。'}];
+const answers=[{correct:1,text:'数量曲线仍在上升，但斜率减小。因此数量增加，增长速率逐渐减小。'},{correct:2,text:'种群数量为 K/2 时最大的是增长速率；增长率已在下降，种群数量也未达到 K 值。'},{correct:0,text:'K 值取决于环境条件。栖息地改善后，可维持的种群数量可能增加。'}];
 for(const panel of document.querySelectorAll('[data-quiz]')){
  const q=answers[Number(panel.dataset.quiz)];
- for(const button of panel.querySelectorAll('[data-answer]'))button.onclick=()=>{const correct=Number(button.dataset.answer)===q.correct;panel.querySelectorAll('button').forEach(b=>{b.classList.remove('correct','wrong');b.setAttribute('aria-pressed',b===button)});button.classList.add(correct?'correct':'wrong');panel.querySelector('.feedback').textContent=(correct?'判断正确。':'再想一想。')+q.text;};
+ for(const button of panel.querySelectorAll('[data-answer]'))button.onclick=()=>{const correct=Number(button.dataset.answer)===q.correct;panel.querySelectorAll('button').forEach(b=>{b.classList.remove('correct','wrong');b.setAttribute('aria-pressed',b===button)});button.classList.add(correct?'correct':'wrong');panel.querySelector('.feedback').textContent=(correct?'判断正确。':'再想一想。')+q.text;formatMath(panel.querySelector('.feedback'));};
 }
 for(const button of document.querySelectorAll('[role="tab"]'))button.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const target=e.key==='Home'?'lab':e.key==='End'?'knowledge':button.id==='tab-lab'?'knowledge':'lab';tab(target);$('tab-'+target).focus()}});
 const state=()=>({parameters:{...params},time,view,j:{count:GrowthModel.count(time,'j',params),speed:GrowthModel.speed(time,'j',params),rate:GrowthModel.rate(time,'j',params)},s:{count:GrowthModel.count(time,'s',params),speed:GrowthModel.speed(time,'s',params),rate:GrowthModel.rate(time,'s',params)},running});
@@ -185,6 +216,7 @@ if(document.modelContext?.registerTool){
 const observer=new ResizeObserver(draw);observer.observe($('chart'));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause()});
 update();
+formatMath(document.body);
 })();
 </script>
 </body></html>
