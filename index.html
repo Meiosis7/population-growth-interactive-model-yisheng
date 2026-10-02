@@ -58,7 +58,16 @@ input[type=range]{accent-color:var(--teal)}input[type=range]::-webkit-slider-thu
 .timeline-head>.time-end{display:block;font-size:12px;color:#475345}
 .topbar .topmeta{display:flex}.brand{flex-wrap:wrap}.topbar{flex-wrap:wrap;gap:8px 20px}
 @media(max-width:600px){.topbar{gap:3px;padding:7px 12px}.topbar .brand{font-size:13px}.topbar .topmeta{width:100%;padding-left:33px;font-size:11px}.timeline-head{align-items:flex-start;flex-wrap:wrap;gap:4px}.timeline-head>.time-end{display:block;width:100%;font-size:11px}.formula{font-size:21px;line-height:1.7}.formula-rate{font-size:16px}}
-.topbar{justify-content:flex-start;gap:8px 18px}.topbar .topmeta{margin-left:0}@media(max-width:600px){.topbar{gap:3px 10px}.topbar .topmeta{width:auto;padding-left:0}}
+/* Mobile heading: keep the book and chapter visible on separate rows. */
+.topbar{justify-content:flex-start;gap:8px 18px}.topbar .topmeta{margin-left:0}
+@media(max-width:800px){
+ .topbar{flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px}
+ .topbar .brand{min-width:0;max-width:100%;flex-wrap:nowrap;font-size:13px;line-height:1.5}
+ .topbar .brandmark{flex-shrink:0}
+ .topbar .brand>span:last-child{white-space:normal;overflow-wrap:anywhere}
+ .topbar .topmeta{display:flex;flex-basis:auto;width:100%;min-width:0;max-width:100%;padding-left:33px;font-size:12px;line-height:1.5;white-space:normal;overflow:visible}
+ .topbar .topmeta>span{min-width:0;overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>
